@@ -1,0 +1,40 @@
+{
+  "name": "pterodactyl",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TBNRItzDoge/pterodactyl.git"
+  },
+  "keywords": [
+    "discord.js",
+    "pterodactyl"
+  ],
+  "author": "doge#1234",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/TBNRItzDoge/pterodactyl/issues"
+  },
+  "homepage": "https://github.com/TBNRItzDoge/pterodactyl#readme",
+  "dependencies": {
+    "better-sqlite3": "^7.4.3",
+    "chalk": "^4.1.2",
+    "discord-buttons": "^4.0.0",
+    "discord-menus": "^1.0.8",
+    "discord-prefix": "^2.0.0",
+    "discord.js": "^12.5.3",
+    "express": "^4.17.1",
+    "moment": "^2.29.1",
+    "nodeactyl": "^3.1.0",
+    "npm": "^6.14.14",
+    "pvea": "^0.1.0",
+    "sqlite": "^3.0.6",
+    "sqlite3": "^4.2.0",
+    "youch": "^2.2.2",
+    "youch-terminal": "^1.1.1"
+  }
+}
