@@ -36,4 +36,4 @@ node .
 
 # Support
 
-If you need any help contact me on Discord: ΛПDЯӨID#2559
+If you need any help contact me on Discord: ΛПDЯӨID#2559 or in My Support Server: https://discord.gg/hwQmuxud46
