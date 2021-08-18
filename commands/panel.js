@@ -25,7 +25,7 @@ module.exports = {
                 if(menu.clicker.user===message.author){
                     if(menu.id==="menuservers"){
                         global.serversel=menu.values[0]
-                        menu.reply.defer(console.log(`se ha seleccionado el server ${serversel}`));
+                        menu.reply.defer(console.log(`the server has been selected ${serversel}`));
                         sql.get(`SELECT * FROM users WHERE id = "${message.author.id}"`).then(row => {
                             if (!row) {
                                 const user = message.author.username
@@ -37,13 +37,13 @@ module.exports = {
                                     const respuesta1 = response
                                     console.log(respuesta1)
                                     if (respuesta1=="running"){
-                                        respuesta="Encendido"
+                                        respuesta="Switched on"
                                         color1="#4DFF00"
                                     } else if (respuesta1=="starting"){
-                                        respuesta="Iniciando"
+                                        respuesta="Initialing"
                                         color1="#FFB600"
                                     } else if (respuesta1=="powered off"){
-                                        respuesta="Apagado"
+                                        respuesta="Switched off"
                                         color1="#FF0000"
                                     }
                                     Client.  getServerUsages(serversel).then((response) => {
@@ -51,7 +51,7 @@ module.exports = {
                                         const embed = new Discord.MessageEmbed()
                                             .setTitle("Estado")
                                             .setColor(color1)
-                                            .setDescription(`**Estado:** ${respuesta}\n**RAM:** ${(recursos.memory_bytes/1000000000).toFixed(2)} GB \n**Disco Duro:** ${(recursos.disk_bytes/1000000000).toFixed(2)} GB`)
+                                            .setDescription(`**Status:** ${respuesta}\n**RAM:** ${(recursos.memory_bytes/1000000000).toFixed(2)} GB \n**HDD:** ${(recursos.disk_bytes/1000000000).toFixed(2)} GB`)
                                             .setTimestamp()
                                             .setFooter(settings.embed.footer, settings.photourl);
                                         message.channel.send(embed).then(embedstatus => {
@@ -64,19 +64,19 @@ module.exports = {
                             };
                         });
                         let start = new MessageMenuOption()
-                        .setLabel("Iniciar")
+                        .setLabel("Start")
                         .setEmoji('🖥️')
                         .setValue("start")
                         let restart = new MessageMenuOption()
-                        .setLabel("Reiniciar")
+                        .setLabel("Restart")
                         .setEmoji('🔄')
                         .setValue("restart")
                         let stop = new MessageMenuOption()
-                        .setLabel("Detener")
+                        .setLabel("Stop")
                         .setEmoji('🛑')
                         .setValue("stop")
                         let kill = new MessageMenuOption()
-                        .setLabel("Matar")
+                        .setLabel("Kill")
                         .setEmoji('☠️')
                         .setValue("kill")
                         let partialsubuser = new MessageMenuOption()
@@ -94,15 +94,15 @@ module.exports = {
                         actionmenu.setPlaceholder('Select an option')
                         actionmenu.addOptions(start,restart,stop,kill,partialsubuser,totalsubuser)
                         let listbackup = new MessageMenuOption()
-                        .setLabel("Listar Backups")
+                        .setLabel("List Backups")
                         .setEmoji('📋')
                         .setValue("listbackup")
                         let createbackup = new MessageMenuOption()
-                        .setLabel("Crear Backup")
+                        .setLabel("Create Backup")
                         .setEmoji('➕')
                         .setValue("createbackup")
                         let dwbackup = new MessageMenuOption()
-                        .setLabel("Descargar Backup")
+                        .setLabel("Download Backup")
                         .setEmoji('871351680577445918')
                         .setValue("dwbackup")
                         global.backupmenu = new MessageMenu()
@@ -112,9 +112,9 @@ module.exports = {
                         backupmenu.setPlaceholder('Select an option')
                         backupmenu.addOptions(createbackup,listbackup,dwbackup)
                         const actionembed = new Discord.MessageEmbed()
-                            .setTitle("Acciones de Energia")
+                            .setTitle("Energy actions")
                             .setColor(settings.embed.color.default)
-                            .setDescription(`**En este menu puedes elegir acciones de energia:**\`\n 🛑 Apagar 🛑\n 🖥️ Encender 🖥️ \n 🔄 Reiniciar 🔄 \n ☠️ Matar ☠️\``)
+                            .setDescription(`**In this menu you can choose energy actions:**\`\n 🛑 Switch OFF 🛑\n 🖥️ Switch ON 🖥️ \n 🔄 Restart 🔄 \n ☠️ Kill ☠️\``)
                             .setTimestamp()
                             .setFooter(settings.embed.footer, settings.photourl);
                         message.channel.send(actionembed, actionmenu).then(menuacction => {
@@ -123,7 +123,7 @@ module.exports = {
                         const backupembed = new Discord.MessageEmbed()
                         .setTitle("Acciones de Backups")
                         .setColor(settings.embed.color.default)
-                        .setDescription(`**En este menu puedes elegir acciones de backup:**\`\n📋 Listar BackUPs 📋\n➕ Crear Backup ➕\n⏬ Descargar Backup ⏬ \``)
+                        .setDescription(`**In this menu you can choose Backup actions:**\`\n📋 List Backups 📋\n➕ Create Backup ➕\n⏬ Download Backup ⏬ \``)
                         .setTimestamp()
                         .setFooter(settings.embed.footer, settings.photourl);
                         message.channel.send(backupembed, backupmenu).then(menubackup => {
@@ -141,7 +141,7 @@ module.exports = {
                                             const Client = new node.NodeactylClient(settings.panelURL, row.token);
                                             Client.startServer(serversel).then((response) => {
                                                 const embed = new Discord.MessageEmbed()
-                                                    .setTitle("Se esta iniciando tu servidor <a:loading1:825155406703624252> ")
+                                                    .setTitle("Your server is starting <a:loading1:825155406703624252> ")
                                                     .setColor(settings.embed.color.default)
                                                     .setTimestamp()
                                                     .setFooter(settings.embed.footer, settings.photourl);
@@ -161,7 +161,7 @@ module.exports = {
                                             const Client = new node.NodeactylClient(settings.panelURL, row.token);
                                             Client.restartServer(serversel).then((response) => {
                                                 const embed = new Discord.MessageEmbed()
-                                                .setTitle("Se esta reiniciando tu servidor <a:loading1:825155406703624252> ")
+                                                .setTitle("Your server is restarting <a:loading1:825155406703624252> ")
                                                 .setColor(settings.embed.color.default)
                                                 .setTimestamp()
                                                 .setFooter(settings.embed.footer, settings.photourl);
@@ -181,7 +181,7 @@ module.exports = {
                                             const Client = new node.NodeactylClient(settings.panelURL, row.token);
                                             Client.stopServer(serversel).then((response) => {
                                                 const embed = new Discord.MessageEmbed()
-                                                    .setTitle("Se esta deteniendo tu servidor <a:loading1:825155406703624252>")
+                                                    .setTitle("Your server is stopping <a:loading1:825155406703624252>")
                                                     .setColor(settings.embed.color.default)
                                                     .setTimestamp()
                                                     .setFooter(settings.embed.footer, settings.photourl);
@@ -201,7 +201,7 @@ module.exports = {
                                             const Client = new node.NodeactylClient(settings.panelURL, row.token);
                                             Client.killServer(serversel).then((response) => {
                                                 const embed = new Discord.MessageEmbed()
-                                                    .setTitle("Se ha forzado la detención tu servidor <a:loading1:825155406703624252> ")
+                                                    .setTitle("The detention has been forced your server <a:loading1:825155406703624252> ")
                                                     .setColor(settings.embed.color.default)
                                                     .setTimestamp()
                                                     .setFooter(settings.embed.footer, settings.photourl);
@@ -284,17 +284,17 @@ module.exports = {
                                             const servers = new Discord.MessageEmbed()
                                             .setColor(settings.embed.color.default)
                                             .setTitle(`${message.author.username}'s Backups`)
-                                            .setDescription("Se está haciendo un backup del servidor <a:loading1:825155406703624252> ")
+                                            .setDescription("A server backup is being made <a:loading1:825155406703624252> ")
                                             .setTimestamp()
                                             .setFooter(settings.embed.footer, settings.photourl);
                                         menu.reply.send(servers, true);
                                         }).catch((error) => {
                                             if (error == 4) {
-                                                message.channel.send("No tienes la posibilidad de hacer backups")
+                                                message.channel.send("You do not have the possibility to do Backups")
                                             } else if (error == 924) {
-                                                message.channel.send("Has realizado backups en los ultimos 10 minutos")
+                                                message.channel.send("You have made backups in the last 10 minutes")
                                             } else {
-                                                message.channel.send("Ha ocurrido un error: " + error)
+                                                message.channel.send("An error has occurred: " + error)
                                             }
                             
                                         });
@@ -313,13 +313,13 @@ module.exports = {
                                             const servers = new Discord.MessageEmbed()
                                             .setColor(settings.embed.color.default)
                                             .setTitle(`${message.author.username}'s Backups`)
-                                            .setDescription(`Para descargar tus backups [haga click aqui](${url})`)
+                                            .setDescription(`To download your backups [click here](${url})`)
                                             .setTimestamp()
                                             .setFooter(settings.embed.footer, settings.photourl);
                                             response.forEach(function (element) {
                                                 servers.addField(
                                                     `__${element.attributes.name}__`,
-                                                    `**Nombre** : ${element.attributes.name}\n**Creado:** ${element.attributes.created_at}\n**Identificador:** ${element.attributes.uuid}`, true)
+                                                    `**Name** : ${element.attributes.name}\n**Created:** ${element.attributes.created_at}\n**Identifier:** ${element.attributes.uuid}`, true)
                                             });
                                             
                                             menu.reply.send(servers, true);
@@ -338,8 +338,8 @@ module.exports = {
                                         const url=`https://panel.hosting-xyz.com/server/${serversel}/backups`
                                         const servers = new Discord.MessageEmbed()
                                         .setColor(settings.embed.color.default)
-                                        .setTitle(`<:descarga:871351680577445918> Descargar Backups <:descarga:871351680577445918>`)
-                                        .setDescription(`Para descargar tus backups [haga click aqui](${url})`)
+                                        .setTitle(`<:descarga:871351680577445918> Download Backups <:descarga:871351680577445918>`)
+                                        .setDescription(`To download your backups [click here](${url})`)
                                         .setTimestamp()
                                         .setFooter(settings.embed.footer, settings.photourl);
                                         menu.reply.send(servers, true);
@@ -355,9 +355,9 @@ module.exports = {
                 } else {
                     const embed = new Discord.MessageEmbed()
                     .setColor("#FF2D00")
-                    .setTitle(`No tienes permisos`)
+                    .setTitle(`You do not have permissions`)
                     .setTimestamp()
-                    .setDescription("No puedes administrar un servidor que no es el tuyo")
+                    .setDescription("You can not manage a server that is not yours")
                     .setFooter(settings.embed.footer, settings.photourl);
                     
                     menu.clicker.user.send(embed)
@@ -375,7 +375,7 @@ module.exports = {
                 servermenu.setMaxValues(1)
                 servermenu.setMinValues(1)
                 servermenu.setID('menuservers')
-                servermenu.setPlaceholder('Selecciona un servidor')
+                servermenu.setPlaceholder('Select a server')
 
                 Client.getAllServers().then(response => {
 
@@ -394,9 +394,9 @@ module.exports = {
                     });
                     const serverembed = new Discord.MessageEmbed()
                     .setColor(settings.embed.color.default)
-                    .setTitle(`<:XYZ:839862970175455252> Bienvenido a GameServers de XYZ <:XYZ:839862970175455252>`)
+                    .setTitle(`Welcome to GameServers`)
                     .setTimestamp()
-                    .setDescription(`Selecciona tu servidor de la lista: \n Una vez seleccionado te saldran 2 menus donde puedes seleccionar distintas opciones`)
+                    .setDescription(`Select your server from the list: \n Once selected you will come out 2 menus where you can select different options`)
                     .setFooter(settings.embed.footer, settings.photourl);
                     message.delete()
                     message.channel.send(serverembed,servermenu).then(servermenu2 => {
