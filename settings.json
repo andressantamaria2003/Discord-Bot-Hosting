@@ -13,5 +13,7 @@
     "panelURL": "",
     "proxmoxurl": "",
     "proxmoxpass": "",
-    "photourl": ""
+    "photourl": "",
+    "hetrixtoolsAPI": "",
+    "discordurl":""
 }

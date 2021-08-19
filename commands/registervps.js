@@ -11,13 +11,13 @@ module.exports.run = (client, message, args) => {
                         return message.channel.send(client.embederror(error))
 
                     });
-                    message.author.send(`Se ha asignado a el usuario con ID ${args[0]} la VPS con ID ${args[1]}`)
+                    message.author.send(`It has been assigned to the user with ID ${args[0]} la VPS con ID ${args[1]}`)
             } else {
-                message.reply(`Ya esta registrado en la base de datos, si quieres restablecer su vinculación. \`!resetvps\``)
+                message.reply(`Is already registered in the database, if you want to restore your link. \`!resetvps\``)
             };
         });
     } else{
-        message.author.send("No eres administrador de XYZ")
+        message.author.send("You are not an administrator")
     }
 }
 module.exports.help = {

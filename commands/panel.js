@@ -309,7 +309,7 @@ module.exports = {
                                     } else {
                                         const Client = new node.NodeactylClient(settings.panelURL, row.token);
                                         Client.listServerBackups(serversel).then((response) => {
-                                            const url=`https://panel.hosting-xyz.com/server/${serversel}/backups`
+                                            const url=`${settings.panelURL}/server/${serversel}/backups`
                                             const servers = new Discord.MessageEmbed()
                                             .setColor(settings.embed.color.default)
                                             .setTitle(`${message.author.username}'s Backups`)
@@ -335,7 +335,7 @@ module.exports = {
                                         const user = message.author.username
                                         message.channel.send(client.noperm(user))
                                     } else {
-                                        const url=`https://panel.hosting-xyz.com/server/${serversel}/backups`
+                                        const url=`${settings.panelURL}/server/${serversel}/backups`
                                         const servers = new Discord.MessageEmbed()
                                         .setColor(settings.embed.color.default)
                                         .setTitle(`<:descarga:871351680577445918> Download Backups <:descarga:871351680577445918>`)
