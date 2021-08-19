@@ -2,7 +2,6 @@
 This is a bot coded in node.js that can manage Pterodactyl game-servers and VPS on Proxmox.
 
 It is easy to self-host and to configure.
-Table of contents
 =================
    * [Installation](#installation)
    * [Usage](#usage)
