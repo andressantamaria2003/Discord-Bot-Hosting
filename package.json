@@ -8,18 +8,18 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/TBNRItzDoge/pterodactyl.git"
+    "url": "git+https://github.com/andressantamaria2003/Discord-Bot-Hosting.git"
   },
   "keywords": [
     "discord.js",
     "pterodactyl"
   ],
-  "author": "doge#1234",
+  "author": "ΛПDЯӨID#2559",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/TBNRItzDoge/pterodactyl/issues"
+    "url": "https://github.com/andressantamaria2003/Discord-Bot-Hosting/issues"
   },
-  "homepage": "https://github.com/TBNRItzDoge/pterodactyl#readme",
+  "homepage": "https://github.com/andressantamaria2003/Discord-Bot-Hosting",
   "dependencies": {
     "better-sqlite3": "^7.4.3",
     "chalk": "^4.1.2",
